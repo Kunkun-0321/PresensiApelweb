@@ -63,6 +63,9 @@ if (isset($_SESSION['user'])) {
                         <small class="user-role"><?= ucfirst($role) ?></small>
                     </div>
                 </div>
+                <a href="../<?= $_SESSION['user']['role'] ?>/ganti_password.php" class="btn btn-secondary">
+                    <i class="fas fa-key"></i> Ganti Password</a>
+
                 <a href="<?= $base_path ?>controllers/AuthController.php?logout=1" class="logout-btn">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span>

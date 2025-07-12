@@ -81,25 +81,23 @@ class Absensi
     }
 
     // Get presensi terbaru untuk dashboard
-    public static function getPresensiTerbaru($limit = 10, $tanggal = null){
-    $conn = Database::getConnection();
-    
-    if (!$tanggal) $tanggal = date('Y-m-d');
-    
-    // Pastikan $limit adalah integer untuk keamanan
-    $limit = (int)$limit;
-
-    $stmt = $conn->prepare("
-        SELECT p.waktu, u.username as nim, u.nama, p.status, p.keterangan 
-        FROM presensi_apel p 
-        JOIN users u ON p.user_id = u.id 
-        WHERE p.tanggal = ? 
-        ORDER BY p.waktu DESC 
-        LIMIT $limit
-    ");
-    $stmt->execute([$tanggal]);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+    public static function getPresensiTerbaru($limit = 10, $tanggal = null)
+    {
+        $conn = Database::getConnection();
+        
+        if (!$tanggal) $tanggal = date('Y-m-d');
+        
+        $stmt = $conn->prepare("
+            SELECT p.waktu, u.username as nim, u.nama, p.status, p.keterangan 
+            FROM presensi_apel p 
+            JOIN users u ON p.user_id = u.id 
+            WHERE p.tanggal = ? 
+            ORDER BY p.waktu DESC 
+            LIMIT $limit
+        ");
+        $stmt->execute([$tanggal]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     // Get statistik presensi
     public static function getStatistik($tanggal = null)

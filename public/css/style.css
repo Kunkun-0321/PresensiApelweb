@@ -916,6 +916,45 @@ a:hover {
   height: auto;
 }
 
+/*GANTI PASSWORD STYLE*/
+.password-form {
+  max-width: 400px;
+  margin: 40px auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+.password-form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.password-form input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+.password-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.password-form button:hover {
+  background-color: #003f88;
+}
+.password-form p {
+  text-align: center;
+  font-weight: bold;
+}
+
+
 /* Animations */
 @keyframes fadeIn {
   from {

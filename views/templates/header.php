@@ -333,7 +333,7 @@ $base_path = getBasePath();
                     <i class="fas fa-graduation-cap"></i>
                     <div class="brand-text">
                         <h1>Sistem Absensi Apel Tingkat</h1>
-                        <span>Politeknik Negeri Malang</span>
+                        <span>Politeknik Statistika STIS</span>
                     </div>
                 </div>
             </div>

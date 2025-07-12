@@ -26,9 +26,9 @@ $mahasiswaList = User::getAllMahasiswa();
             <a href="import_mahasiswa.php" class="btn btn-success">
                 <i class="fas fa-file-import"></i> Import CSV
             </a>
-            <button class="btn btn-primary" onclick="showAddModal()">
-                <i class="fas fa-plus"></i> Tambah Mahasiswa
-            </button>
+            <a href="tambah_user.php" class="btn btn-primary">
+                <i class="fas fa-user-plus"></i> Tambah User
+            </a>
         </div>
         <div class="action-right">
             <div class="search-box">

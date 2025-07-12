@@ -111,5 +111,22 @@ class User {
         $stmt->execute([$role]);
         return $stmt->fetchColumn();
     }
+
+    public static function updatePassword($id, $newPassword) {
+    global $pdo;
+    $stmt = $pdo->prepare("UPDATE users SET password = ? WHERE id = ?");
+    return $stmt->execute([password_hash($newPassword, PASSWORD_DEFAULT), $id]);
+    }
+
+    public static function insertUser($data) {
+    global $pdo;
+    $stmt = $pdo->prepare("INSERT INTO users (nim, nama, kelas, tingkat, username, password, role) 
+                           VALUES (?, ?, ?, ?, ?, ?, ?)");
+    return $stmt->execute([
+        $data['nim'], $data['nama'], $data['kelas'], $data['tingkat'],
+        $data['username'], $data['password'], $data['role']
+    ]);
+}
+
 }
 ?>

@@ -6,6 +6,25 @@
 session_start();
 require_once __DIR__ . '/../models/User.php';
 
+if ($_POST['action'] === 'ganti_password') {
+    $id = $_SESSION['user']['id'];
+    $lama = $_POST['lama'];
+    $baru = $_POST['baru'];
+    $konfirmasi = $_POST['konfirmasi'];
+
+    $user = User::getById($id);
+    if ($user && password_verify($lama, $user['password']) && $baru === $konfirmasi) {
+        User::updatePassword($id, password_hash($baru, PASSWORD_DEFAULT));
+        header('Location: ../views/' . $_SESSION['user']['role'] . '/ganti_password.php?success=1');
+    } else {
+        header('Location: ../views/' . $_SESSION['user']['role'] . '/ganti_password.php?error=1');
+    }
+    exit;
+}
+
+
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'login') {
     $user = User::getByUsername($_POST['username']);
     
